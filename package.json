@@ -1,0 +1,23 @@
+{
+    "name": "com.osgames.boardgame",
+    "version": "0.0.1",
+    "displayName": "User Interface",
+    "description": "A set of scripts and assets for user interface creation.",
+    "unity": "2022.3",
+    "unityRelease": "45f1",
+    "documentationUrl": "https://github.com/oshears/userinter",
+    "changelogUrl": "https://github.com/oshears/boardgame",
+    "licensesUrl": "https://github.com/oshears/boardgame",
+    "dependencies": {
+        "com.unity.textmeshpro": "3.0.9",
+        "com.unity.inputsystem": "1.7.0"
+    },
+    "keywords": [
+        "User Interface"
+    ],
+    "author": {
+        "name": "Osaze Shears",
+        "email": "yoze15@gmail.com",
+        "url": "https://github.com/oshears/"
+    }
+}
