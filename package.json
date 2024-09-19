@@ -1,7 +1,7 @@
 {
     "name": "com.osgames.userinterface",
     "version": "0.0.1",
-    "displayName": "User Interface",
+    "displayName": "OSGames User Interface",
     "description": "A set of scripts and assets for user interface creation.",
     "unity": "2022.3",
     "unityRelease": "45f1",
