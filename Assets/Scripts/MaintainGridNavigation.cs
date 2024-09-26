@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 
-namespace UserInterface{
+namespace OSGames.UserInterface {
 
     public class MaintainGridSelectableNavigation : MonoBehaviour {
         
