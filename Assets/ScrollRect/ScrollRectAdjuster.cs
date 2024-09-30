@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 
-namespace OSGAmes.UserInterface{
+namespace OSGames.UserInterface{
     public class ScrollRectAdjuster : MonoBehaviour
     {
         [SerializeField] private ScrollRect scrollRect;
@@ -24,7 +24,7 @@ namespace OSGAmes.UserInterface{
         } 
 
         void OnEnable(){
-            ConfigureScrollAdjust();
+            // ConfigureScrollAdjust();
         }
 
         public void ConfigureScrollAdjust(){
