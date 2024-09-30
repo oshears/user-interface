@@ -4,43 +4,72 @@ using UnityEngine.UI;
 
 namespace OSGames.UserInterface.Selectables {
 
-    public class LimitedToggleGroup : ToggleGroup {
+    public class LimitedToggleGroup {
 
-        // void Start(){
+        // TODO: good polish to later have this unselect old toggles
+        // Queue<Toggle> m_ToggleActivationQueue;
+
+        List<Toggle> m_Toggles;
+        public List<Toggle> toggles {
+            get {
+                return m_Toggles;
+            }
+        }
+
+        int m_MaxToggles = 1;
+        public int MaxToggles{
+            get { return m_MaxToggles;}
+            set { m_MaxToggles = value; }
+        }
+
+        public LimitedToggleGroup(int maxToggles = 1){
+            m_MaxToggles = maxToggles;
+            m_Toggles = new List<Toggle>();
+        } 
+
+        public void AddAndSubscribeToToggle(Toggle tg){
+            m_Toggles.Add(tg);
+            tg.onValueChanged.AddListener(OnValueChanged);
+        }
+
+        public void SubsribeToToggles(){
+            foreach (Toggle tg in m_Toggles){
+                tg.onValueChanged.AddListener(OnValueChanged);
+            }
+        }
+
+        public void UnsubscribeFromToggles(){
+            foreach (Toggle tg in m_Toggles){
+                tg.onValueChanged.RemoveListener(OnValueChanged);
+            }
+        }
+
+        public List<Toggle> GetActiveToggles(){
+            List<Toggle> activeToggles = new List<Toggle>();
             
-        // }
+            foreach(Toggle tg in m_Toggles){
+                if (tg.isOn){
+                    activeToggles.Add(tg);
+                }
+            }
 
-        // void OnEnable(){
+            return activeToggles;
+        }
 
-        // }
+        public void DestroyToggles(){
+            foreach (Toggle tg in m_Toggles){
+                // check if object is destroyed before accessing it
+                if (tg) {
+                    Object.Destroy(tg.gameObject);
+                }
+            }
+            m_Toggles.Clear();
+        }
 
-        // void OnDisable(){
-
-        // }
-
-
-        // /// <summary>
-        // /// Notify the group that the given toggle is enabled.
-        // /// </summary>
-        // /// <param name="toggle">The toggle that got triggered on.</param>
-        // /// <param name="sendCallback">If other toggles should send onValueChanged.</param>
-        // override public void NotifyToggleOn(Toggle toggle, bool sendCallback = true)
-        // {
-        //     base.ValidateToggleIsInGroup(toggle);
-        //     // disable all toggles in the group
-        //     for (var i = 0; i < m_Toggles.Count; i++)
-        //     {
-        //         if (m_Toggles[i] == toggle)
-        //             continue;
-
-        //         if (sendCallback)
-        //             m_Toggles[i].isOn = false;
-        //         else
-        //             m_Toggles[i].SetIsOnWithoutNotify(false);
-        //     }
-
-        //     //TODO: disable extra toggles if too many selected
-        // }
+        public void OnValueChanged(bool isOn){
+            
+        }
+        
         
     }
 

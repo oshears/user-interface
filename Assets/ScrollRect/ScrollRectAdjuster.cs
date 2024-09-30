@@ -54,12 +54,16 @@ namespace OSGames.UserInterface{
 
         public void ReleaseScrollAdjust(){
             foreach (Transform go in elements)
-            {
-                EventTrigger eventTrigger = go.GetComponentInChildren<EventTrigger>();
-                // eventTrigger.RemoveListener(EventTriggerType.Select, OnSelect);
-                // eventTrigger.RemoveListener(EventTriggerType.UpdateSelected, OnSelect);
-                eventTrigger.RemoveListener(EventTriggerType.Move, OnMove);
+            {   
+                // check if destroyed before unsubscribing
+                if (go){
+                    EventTrigger eventTrigger = go.GetComponentInChildren<EventTrigger>();
+                    // eventTrigger.RemoveListener(EventTriggerType.Select, OnSelect);
+                    // eventTrigger.RemoveListener(EventTriggerType.UpdateSelected, OnSelect);
+                    eventTrigger.RemoveListener(EventTriggerType.Move, OnMove);
+                }
             }
+            elements.Clear();
         }
 
         private void OnDestroy()
