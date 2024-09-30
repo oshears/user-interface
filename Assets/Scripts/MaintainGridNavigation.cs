@@ -17,6 +17,11 @@ namespace OSGames.UserInterface {
             m_Selectables = new List<Selectable>();
         }
 
+        void Start(){
+            SetupNavigation();
+            previousCount = transform.childCount;
+        }
+
         void Update(){
 
             if (transform.childCount != 0 && transform.childCount != previousCount){
@@ -25,6 +30,20 @@ namespace OSGames.UserInterface {
             }
 
             // if ()
+
+        }
+
+        void OnEnable(){
+            SetupNavigation();
+            previousCount = transform.childCount;
+        }
+
+        void OnDisable() {
+            previousCount = 0;
+            m_Selectables.Clear();
+        }
+
+        void OnDestroy(){
 
         }
 
