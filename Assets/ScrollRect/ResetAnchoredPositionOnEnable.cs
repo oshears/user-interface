@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 
-namespace OSGAmes.UserInterface{
+namespace OSGames.UserInterface{
     public class ResetAnchoredPositionOnEnable : MonoBehaviour
     {
 
