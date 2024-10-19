@@ -40,12 +40,11 @@ namespace OSGames.UserInterface{
                 
             foreach (Transform go in elements)
             {
-                Debug.Log($"Adding event trigger for select for: {go}");
                 EventTrigger eventTrigger = go.GetComponent<EventTrigger>();
 
                 eventTrigger.AddListener(EventTriggerType.Select, OnMove);
             }
-            scrollRect.verticalNormalizedPosition = 0;
+            scrollRect.verticalNormalizedPosition = 1;
         }
 
         void OnDisable(){
