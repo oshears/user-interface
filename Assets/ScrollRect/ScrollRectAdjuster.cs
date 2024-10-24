@@ -52,6 +52,9 @@ namespace OSGames.UserInterface{
         }
 
         public void ReleaseScrollAdjust(){
+            
+            if (elements == null) return;
+
             foreach (Transform go in elements)
             {   
                 // check if destroyed before unsubscribing
