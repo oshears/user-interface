@@ -60,11 +60,12 @@ namespace OSGames.UserInterface {
             }
             for(int i = 0; i < m_Selectables.Count; i++){
                 Navigation nav = new Navigation();
-                nav.mode = Navigation.Mode.Explicit;
-                nav.selectOnLeft = i > 0 ? m_Selectables[i - 1] : m_Selectables[m_Selectables.Count - 1]; 
-                nav.selectOnUp = nav.selectOnLeft;
-                nav.selectOnRight = i < m_Selectables.Count - 1 ? m_Selectables[i + 1] : m_Selectables[0]; 
-                nav.selectOnDown = nav.selectOnRight;
+                // nav.mode = Navigation.Mode.Explicit;
+                nav.mode = Navigation.Mode.Automatic;
+                // nav.selectOnLeft = i > 0 ? m_Selectables[i - 1] : m_Selectables[m_Selectables.Count - 1]; 
+                // nav.selectOnUp = nav.selectOnLeft;
+                // nav.selectOnRight = i < m_Selectables.Count - 1 ? m_Selectables[i + 1] : m_Selectables[0]; 
+                // nav.selectOnDown = nav.selectOnRight;
                 m_Selectables[i].navigation = nav;
             }
         }
